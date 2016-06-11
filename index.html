@@ -1,85 +1,100 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-<section id="section01" class="demo">
-	<h1>Select a product</h1>
-	<!--------PRODUCTS------------>
-	<!----------P1--------->
-	<div class="responsive">
-  <div class="img">
-    <a target="_blank" href="img_fjords.jpg">
-      <img src="https://pixabay.com/static/uploads/photo/2015/02/02/15/28/bar-621033_960_720.jpg" alt="Trolltunga Norway" width="300" height="200">
-    </a>
-    <div class="desc"><input type="radio" name="choice" value="p1" unchecked /> Product 1</div>
-  </div>
-</div>
 
-<!----------P2--------->
-<div class="responsive">
-  <div class="img">
-    <a target="_blank" href="img_forest.jpg">
-      <img src="https://pixabay.com/static/uploads/photo/2016/03/26/22/22/happy-1281590_960_720.jpg" alt="Forest" width="600" height="400">
-    </a>
-    <div class="desc"><input type="radio" name="choice" value="p1" unchecked /> Product 2</div>
-  </div>
-</div>
-<!----------P3--------->
-<div class="responsive">
-  <div class="img">
-    <a target="_blank" href="img_fjords.jpg">
-      <img src="https://pixabay.com/static/uploads/photo/2015/11/23/11/32/colorful-pen-1058166_960_720.jpg" alt="Trolltunga Norway" width="300" height="200">
-    </a>
-    <div class="desc"><input type="radio" name="choice" value="p1" unchecked /> Product 3</div>
-  </div>
-</div>
+    <head>
+        <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
 
-<!----------P4--------->
-<div class="responsive">
-  <div class="img">
-    <a target="_blank" href="img_forest.jpg">
-      <img src="https://pixabay.com/static/uploads/photo/2014/11/22/00/51/camera-541213_960_720.jpg" alt="Forest" width="600" height="400">
-    </a>
-    <div class="desc"><input type="radio" name="choice" value="p1" unchecked /> Product 4</div>
-  </div>
-</div>
-<!---------Product slection BUTTON-------->
-        
-	<a href="#section02"><span></span><input type="button" value="Submit" onclick="processForm()"></a>
-</section>
+    <body>
+        <section id="section01" class="demo">
+            	<div id="header">
+			<h2><br />Select a Destination</h2>
+			</div>
+            <!--------PRODUCTS------------>
+            <!----------P1--------->
+            <div class="responsive">
+                <div class="img">
+                    <a target="_blank" href="img_fjords.jpg">
+                        <img src="https://pixabay.com/static/uploads/photo/2015/02/02/15/28/bar-621033_960_720.jpg" alt="Trolltunga Norway" width="300" height="200">
+                    </a>
+                    <div class="desc">
+                        <input type="radio" name="choice" value="p1" unchecked />Product 1</div>
+                </div>
+            </div>
+
+            <!----------P2--------->
+            <div class="responsive">
+                <div class="img">
+                    <a target="_blank" href="img_forest.jpg">
+                        <img src="https://pixabay.com/static/uploads/photo/2016/03/26/22/22/happy-1281590_960_720.jpg" alt="Forest" width="600" height="400">
+                    </a>
+                    <div class="desc">
+                        <input type="radio" name="choice" value="submit" unchecked />Product 2</div>
+                </div>
+            </div>
+            <!----------P3--------->
+            <div class="responsive">
+                <div class="img">
+                    <a target="_blank" href="img_fjords.jpg">
+                        <img src="https://pixabay.com/static/uploads/photo/2015/11/23/11/32/colorful-pen-1058166_960_720.jpg" alt="Trolltunga Norway" width="300" height="200">
+                    </a>
+                    <div class="desc">
+                        <input type="radio" name="choice" value="p1" unchecked />Product 3</div>
+                </div>
+            </div>
+
+            <!----------P4--------->
+            <div class="responsive">
+                <div class="img">
+                    <a target="_blank" href="img_forest.jpg">
+                        <img src="https://pixabay.com/static/uploads/photo/2014/11/22/00/51/camera-541213_960_720.jpg" alt="Forest" width="600" height="400">
+                    </a>
+                    <div class="desc">
+                        <input type="radio" name="choice" value="p1" unchecked />Product 4</div>
+                </div>
+            </div>
+            <!---------Product slection BUTTON-------->
+
+            	<a href="#section02"><span></span><input type="button" value="submit" onclick="processForm()"></a>
+        </section>
 
 
-<section id="section02" class="demo">
-	<h1>Scroll Down Button #2</h1>
-	<p>Please enter zip code to purchase item(s). </p>
+        <section id="section02" class="demo">
+            
+            <div id="header">
+			    <h2><br />Lets Find A Store</h2>
+			</div>
+            <p>Please enter your zip code</p>
             <label>Zip Code:</label>
-    <!---------Zip code BUTTON-------->
+            <!---------Zip code BUTTON-------->
             <input type="text" name="zpcode">
-		<a href="#section02"><span></span><input type="button" value="Submit" onclick="processForm()"></a>
-</section>
+            	<a href="#section02"><span></span><input type="button" value="Submit" onclick="processForm()"></a>
+        </section>
 
-<!------MAP-------------->
-<section id="section03" class="demo">
-	<h1>Scroll Down Button #3</h1>
-	 <div class="col-md-8">
-            <!-- Embedded Google Map using an iframe - to select your location find it on Google maps and paste the link as the iframe src. If you want to use the Google Maps API instead then have at it! -->
-            <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=56.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"></iframe>
-          </div>
-           <!---------Location submission-------->
-	<a href="#section04"><span></span>Submit</a>
-</section>
-<section id="section04" class="demo">
-    <!---------TIMER------------>
-	<h1>You have 72 hours to confirm your purchase</h1>
-</section>
+        <!------MAP---------->
+        <section id="section03" class="demo">
+            	<div id="header">
+			    <h2><br />MAP</h2>
+			</div>
+            	<h3>Select a store Neer-by</h3>
+            <div class="col-md-8">
+                <!-- Embedded Google Map using an iframe - to select your location find it on Google maps and paste the link as the iframe src. If you want to use the Google Maps API instead then have at it! -->
+                <iframe width="70%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=56.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"></iframe>
+            </div>
+            <!---------Location submission-------->
+            	<a href="#section04"><span></span>Submit</a>
+        </section>
+        <section id="section04" class="demo">
+            <!---------TIMER------------>
+            	<h1 style="color: red">You have 72 hours to confirm your purchase</h1>
+        </section>
 
 
- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <script src="script.js"></script>
-</body>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="script.js"></script>
+    </body>
+
 </html>
