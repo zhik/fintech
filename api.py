@@ -29,6 +29,8 @@ def update_(x, z):
         WHERE user_ID=?;
         ''',(x, date ,z ))
     conn.commit()
+def reselect():
+    db.execute('''SELECT * FROM user''')
 
 #the "online store page"
 @app.route('/')
@@ -54,14 +56,13 @@ def create_id():
     name = request.form['name']
     if cost != "" and zipcode != "":
         create_(cost, name)
-        res = db.execute('''SELECT * FROM user''')
+        reselect()
         user_id = [str(row[0]) for row in db.fetchall()]
-        res = db.execute('''SELECT * FROM user''')
+        reselect()
         start_time = [str(row[3]) for row in db.fetchall()]
-        print start_time
         end_time = datetime.strptime(start_time[-1], "%Y-%m-%d %H:%M:%S")
         end_time += timedelta(hours=12)
-        return render_template('confirm.html', zipcode = zipcode, user_id = user_id[-1], end_time= end_time)
+        return render_template('confirm.html', cost= cost, zipcode = zipcode, user_id = user_id[-1], end_time= end_time)
     else:
         return render_template('try.html')
 
