@@ -1,4 +1,47 @@
+<html>
+<head>
+
+<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+<style type="text/css">
+  html,
+body {
+  height: 100%;
+  background-color: orange;
+}
+.container {
+	margin-top: 100px;
+}
+h1 {
+	color: white;
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  font-size: 80px;
+}
+h2 {
+	 color: white;
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  font-size: 60px;
+}
+h4 {
+	 color: white;
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  font-size: 40px;
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="container">
+<h1>NEER</h1>
 {% if user_id %}
-  <h2>{{ user_id }} is confirmed </h2>
-  <h4>@ {{ store }}</h4>
+  <h2>Order ID <span style="color: green">#{{ user_id }}</span> is confirmed! </h2>
+  <h4>Purchased @ {{ store }}</h4>
 {% endif %}
+</div>
+</body>
+</html>
