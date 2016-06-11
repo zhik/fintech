@@ -5,8 +5,10 @@ import datetime
 
 app = Flask(__name__)
 
+#connect to the database 
 conn = sqlite3.connect('fintech.db',check_same_thread=False)
 db = conn.cursor()
+
 
 def create_(amt, online_store):
     unix = time.time()
@@ -27,19 +29,23 @@ def update_(x, z):
         ''',(x, date ,z ))
     conn.commit()
 
+#the "online store page"
 @app.route('/')
 def home():
     return render_template('form.html')
 
+#check user (used by online store)
 @app.route('/<int:user_id>', methods=['GET'])
 def check_id(user_id):
     res = db.execute('''SELECT * FROM user''')
     tows = [row for row in db.fetchall() if row[0] == user_id]
     if tows[0][5] is None:
-        return jsonify('False')
+        confirms = False
     else:
-        return jsonify('True')
+        confirms = True
+    return render_template("check.html", confirms = confirms)
 
+#make "user" (used by online store) -- connected to forms
 @app.route('/create', methods=['POST'])
 def create_id():
     cost = request.form['cost']
@@ -47,20 +53,22 @@ def create_id():
     name = request.form['name']
     if cost != "" and zipcode != "":
         create_(cost, name)
-        return render_template('confirm.html', zipcode = zipcode)
+        res = db.execute('''SELECT * FROM user''')
+        user_id = [str(row[0]) for row in db.fetchall()]
+        return render_template('confirm.html', zipcode = zipcode, user_id = user_id[-1])
     else:
         return render_template('try.html')
 
+#approve (payment store)
 @app.route('/<int:user_id>/update')
 def update_id(user_id):
-    #go to user_id and add id & time
     res = db.execute('''SELECT * FROM user''')
     tows = [row for row in db.fetchall() if row[0] == user_id]
     if len(tows) == 0:
         abort(404)
     store = 'cvs'
     update_(store, user_id)
-    return jsonify(tows)
+    return render_template("update.html", store = store , user_id = user_id)
 
 if __name__ == '__main__':
     app.run(debug=True)
