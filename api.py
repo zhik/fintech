@@ -32,6 +32,9 @@ def update_(x, z):
 def reselect():
     db.execute('''SELECT * FROM user''')
 
+def random_number():
+    return 1.015
+
 #the "online store page"
 @app.route('/')
 def home():
@@ -55,14 +58,15 @@ def create_id():
     zipcode = request.form['zipcode']
     name = request.form['name']
     if cost != "" and zipcode != "":
-        create_(cost, name)
+        new_cost = str(float(cost) * random_number())
+        create_(new_cost, name)
         reselect()
         user_id = [str(row[0]) for row in db.fetchall()]
         reselect()
         start_time = [str(row[3]) for row in db.fetchall()]
         end_time = datetime.strptime(start_time[-1], "%Y-%m-%d %H:%M:%S")
         end_time += timedelta(hours=12)
-        return render_template('confirm.html', cost= cost, zipcode = zipcode, user_id = user_id[-1], end_time= end_time)
+        return render_template('confirm.html', cost= cost, new_cost = new_cost, zipcode = zipcode, user_id = user_id[-1], end_time= end_time)
     else:
         return render_template('try.html')
 
