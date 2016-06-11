@@ -29,9 +29,12 @@
     font-size: 30px;
     }
     #time_left{
-    border: 1px solid #cccccc;
     margin-bottom: 20px;
+    margin-left: 525px;
     padding: 10px 0;
+    color: white;
+    font-size: 30px;
+    border: none;
   }
     </style>
   </head>
@@ -42,7 +45,7 @@
       </div>
       <h2>Your purchase ID is #{{user_id}}</h2>
       <div id="time_left"></div><p style="color: red;">you have till {{end_time}}</p>
-      <p>to pay {{cost}}</p>
+      <p>to pay ${{cost}}</p>
     {% else %}
       <h2>no user id, try again</h2>
     {% endif %}

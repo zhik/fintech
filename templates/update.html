@@ -30,6 +30,13 @@ h4 {
   text-align: center;
   font-size: 40px;
 }
+#logo {
+	height: 200px;
+	width: 400px;
+	margin-top: -20px;
+	
+	margin-bottom: -30px;
+}
 
 </style>
 
@@ -37,7 +44,7 @@ h4 {
 
 <body>
 <div class="container">
-<h1>NEER</h1>
+<h1><img id="logo" alt="Neer" src="http://i.imgur.com/cWW5qHE.png?1"></h1>
 {% if user_id %}
   <h2>Order ID <span style="color: green">#{{ user_id }}</span> is confirmed! </h2>
   <h4>Purchased @ {{ store }}</h4>
