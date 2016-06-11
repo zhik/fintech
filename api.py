@@ -1,7 +1,8 @@
 from flask import Flask, jsonify, request, abort, render_template
 import sqlite3
 import time
-import datetime
+from datetime import timedelta, datetime
+
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ db = conn.cursor()
 
 def create_(amt, online_store):
     unix = time.time()
-    date = str(datetime.datetime.fromtimestamp(unix).strftime('%Y-%m-%d %H:%M:%S'))
+    date = str(datetime.fromtimestamp(unix).strftime('%Y-%m-%d %H:%M:%S'))
     db.execute('''
         INSERT INTO user(amt, online_store, time_stamp) VALUES(?, ?, ?)
         ''', (amt, online_store, date))
@@ -20,7 +21,7 @@ def create_(amt, online_store):
 
 def update_(x, z):
     unix = time.time()
-    date = str(datetime.datetime.fromtimestamp(unix).strftime('%Y-%m-%d %H:%M:%S'))
+    date = str(datetime.fromtimestamp(unix).strftime('%Y-%m-%d %H:%M:%S'))
     db.execute('''
         UPDATE user 
         SET physical_store=?,
@@ -55,7 +56,12 @@ def create_id():
         create_(cost, name)
         res = db.execute('''SELECT * FROM user''')
         user_id = [str(row[0]) for row in db.fetchall()]
-        return render_template('confirm.html', zipcode = zipcode, user_id = user_id[-1])
+        res = db.execute('''SELECT * FROM user''')
+        start_time = [str(row[3]) for row in db.fetchall()]
+        print start_time
+        end_time = datetime.strptime(start_time[-1], "%Y-%m-%d %H:%M:%S")
+        end_time += timedelta(hours=12)
+        return render_template('confirm.html', zipcode = zipcode, user_id = user_id[-1], end_time= end_time)
     else:
         return render_template('try.html')
 

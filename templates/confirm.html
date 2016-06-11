@@ -13,6 +13,7 @@
 {% if user_id %}
   <h1>Hello {{ zipcode }}!</h1>
   <h2>{{user_id}} is your id</h2>
+  <h2 style="color: red;">you have till {{end_time}}</h2>
 {% else %}
   <h2>no user id, try again</h2>
 {% endif %}
