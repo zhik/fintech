@@ -67,3 +67,9 @@ h3{
     display: table;
     clear: both;
 }
+
+#time_left{
+    border: 1px solid #cccccc;
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
