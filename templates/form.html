@@ -1,22 +1,113 @@
+<html>
+
+<head>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<form action="http://127.0.0.1:5000/create" method="post">
-	<input type="hidden" name="name" value="humble-bundle">
-	<input type="number" name="zipcode" placeholder="zipcode">
-	<div class="order-form-header">
-		<p>Purchase<strong> the Humble Staff Picks Bundle: Hamble</strong>
-		</p>
-	</div>
-	<div><label class="order-form-amount-selection-label">Pay What You Want!</label>
-	<input type="number" name="cost" placeholder="">
+
+<style type="text/css">
+	html,
+body {
+	height: 100%;
+}
+
+.entire {
+	width: 100%;
+	height: 100%;
+	background-color: orange;
+}
+.inner_entire {
+	margin-top: 10px;
+}
+
+.logo {
+	color: white;
+	font-size: 150px;
+	margin-right: 0px;
+	font-family: 'Lobster', cursive;
+}
+
+.payment_head {
+	color: white;
+	font-size: 30px;
+	font-family: 'Lobster', cursive;
+}
+#payment {
+	color: black;
+}
+
+input {
+	width: 300px;
+	height: 50px;
+}
+#neer {
+	width: 200px;
+	height: 20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid entire">
+<div class="container inner_entire">
+
+<div class="row logo">
+<div class="col-md-4"></div>
+<div class="col-md-4">NEER</div>
+<div class="col-md-4"></div>
 </div>
-<input value="Pay with Neer" type="submit">
-<br>
-<button name= type="button" class="order-form-paypal-payment-button js-payment-button" data-processor="PayPal">
-Check out with <img alt="Paypal" src="https://humblebundle-a.akamaihd.net/static/hashed/482b7908ee21571518d636bbefc08f0340c55d1e.svg">
-</button>
-</form>
+
+
+	<form action="http://127.0.0.1:5000/create" method="post">
+
+		<div class="row zip">
+			<div class="col-md-12 text-center">
+				<input type="hidden" name="name" value="humble-bundle">
+				<input type="number" name="zipcode" placeholder="zipcode">
+			</div>
+		</div><br><br>
+
+		<div class="row payment">
+			<div class="col-md-12 text-center">
+				<div class="order-form-amount-selection-step"><div class="order-form-radio-amount-selector"><label class="order-form-amount-selection-label payment_head">Amount Due(+$3 Convinience Fee):<br></label><br>
+				<input id="payment"type="number" name="cost" placeholder=""></div>
+				<div class="order-form-image-fan-container u-order-form-redesign"></div>
+				<div class="order-form-amount-error-container"></div>
+				</div>
+			</div>
+		</div><br>
+
+		<div class="row neer_button">
+			<div class="col-md-12 text-center">
+				<div class="order-form-payment-step"></div>
+				<div class="order-form-payment-options-container"></div>
+				<input id="neer" value="Pay with Neer" type="submit">
+			</div>
+		</div><br>
+		
+		<div class="row paypal_button">
+			<div class="col-md-12 text-center">
+				<button name= type="button" class="order-form-paypal-payment-button js-payment-button" data-processor="PayPal">
+				Check out with <img alt="Paypal" src="https://humblebundle-a.akamaihd.net/static/hashed/482b7908ee21571518d636bbefc08f0340c55d1e.svg">
+				</button>
+			</div>
+		</div>
+	
+
+	</form>
+</div>
+</div>
+
+</body>
+
+</html>

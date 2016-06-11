@@ -1,6 +1,47 @@
+<html>
+<head>
+
+<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+<style type="text/css">
+  html,
+body {
+  height: 100%;
+  background-color: orange;
+}
+.container {
+	margin-top: 100px;
+}
+h1 {
+	color: white;
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  font-size: 80px;
+}
+h2 {
+	 color: white;
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  font-size: 60px;
+}
+h4 {
+	 color: white;
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  font-size: 40px;
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="container">
+<h1>NEER</h1>
+
 {% if confirms %}
-	<h1>Yes</h1>
-	<img src="http://www.dogedoor.net/wp-content/uploads/shibe-in-moneypool.jpg"></img>
+  <h2>Order status: <span style="color: green">PAID</span> </h2>
+  <h4>Purchased @ CVS</h4>
 {% else %}
-	<h1>No</h1>
+  <h1>No</h1>
 {% endif %}
