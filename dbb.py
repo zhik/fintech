@@ -1,8 +1,6 @@
 import sqlite3
 import time
 import datetime
-conn = sqlite3.connect('fintech.db')
-
 
 db = conn.cursor()
 
@@ -26,7 +24,7 @@ def create_(amt, online_store):
 		INSERT INTO user(amt, online_store, time_stamp) VALUES(?, ?, ?)
 		''', (amt, online_store, date))
 
-create_(50, "target")
+#create_(50, "target")
 
 def update_(x, z):
 	unix = time.time()
