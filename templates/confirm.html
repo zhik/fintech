@@ -28,12 +28,17 @@
     text-align: center;
     font-size: 30px;
     }
+    #time_left{
+    border: 1px solid #cccccc;
+    margin-bottom: 20px;
+    padding: 10px 0;
+  }
     </style>
   </head>
   <body>
     {% if user_id %}
       <div class="col-md-8">
-        <iframe width="80%" height="400px" frameborder="0" scrolling="no" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCHH9B6a9FFsRyDQNEfih6Ana6lLD4oM1I&amp;q=cvs+in+{{zipcode}}"></iframe>
+        <iframe width="90%" height="400px" frameborder="0" scrolling="no" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCHH9B6a9FFsRyDQNEfih6Ana6lLD4oM1I&amp;q=cvs+in+{{zipcode}}"></iframe>
       </div>
       <h2>Your purchase ID is #{{user_id}}</h2>
       <div id="time_left"></div><p style="color: red;">you have till {{end_time}}</p>
