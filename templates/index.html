@@ -7,6 +7,8 @@
 <body>
 <section id="section01" class="demo">
 	<h1>Select a product</h1>
+	<!--------PRODUCTS------------>
+	<!----------P1--------->
 	<div class="responsive">
   <div class="img">
     <a target="_blank" href="img_fjords.jpg">
@@ -16,7 +18,7 @@
   </div>
 </div>
 
-
+<!----------P2--------->
 <div class="responsive">
   <div class="img">
     <a target="_blank" href="img_forest.jpg">
@@ -25,7 +27,7 @@
     <div class="desc"><input type="radio" name="choice" value="p1" unchecked /> Product 2</div>
   </div>
 </div>
-
+<!----------P3--------->
 <div class="responsive">
   <div class="img">
     <a target="_blank" href="img_fjords.jpg">
@@ -35,7 +37,7 @@
   </div>
 </div>
 
-
+<!----------P4--------->
 <div class="responsive">
   <div class="img">
     <a target="_blank" href="img_forest.jpg">
@@ -44,30 +46,34 @@
     <div class="desc"><input type="radio" name="choice" value="p1" unchecked /> Product 4</div>
   </div>
 </div>
-	<a href="#section02"><span></span>Submit</a>
+<!---------Product slection BUTTON-------->
+        
+	<a href="#section02"><span></span><input type="button" value="Submit" onclick="processForm()"></a>
 </section>
+
+
 <section id="section02" class="demo">
 	<h1>Scroll Down Button #2</h1>
 	<p>Please enter zip code to purchase item(s). </p>
             <label>Zip Code:</label>
-            <input type="text" name="firstname">
-	<a href="#section03"><span></span>Submit</a>
+    <!---------Zip code BUTTON-------->
+            <input type="text" name="zpcode">
+		<a href="#section02"><span></span><input type="button" value="Submit" onclick="processForm()"></a>
 </section>
+
+<!------MAP-------------->
 <section id="section03" class="demo">
 	<h1>Scroll Down Button #3</h1>
 	 <div class="col-md-8">
             <!-- Embedded Google Map using an iframe - to select your location find it on Google maps and paste the link as the iframe src. If you want to use the Google Maps API instead then have at it! -->
             <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=56.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"></iframe>
           </div>
-	<a href="#section04"><span></span>Scroll</a>
+           <!---------Location submission-------->
+	<a href="#section04"><span></span>Submit</a>
 </section>
 <section id="section04" class="demo">
+    <!---------TIMER------------>
 	<h1>You have 72 hours to confirm your purchase</h1>
-	<a href="#section05"><span></span>Scroll</a>
-</section>
-<section id="section05" class="demo">
-	<h1>Scroll Down Button #5</h1>
-	<a href="#section06"><span></span>Scroll</a>
 </section>
 
 
